@@ -6,7 +6,7 @@
 # Help : http://nagios.manubulon.com
 # Licence : GPL - http://www.fsf.org/licenses/gpl.txt
 # TODO : 
-# Contribs : Dimo Velev, Makina Corpus, A. Greiner-Bär, Matthew Capra (Nagios Enterprises)
+# Contribs : Dimo Velev, Makina Corpus, A. Greiner-BÃ¤r, Matthew Capra (Nagios Enterprises)
 #################################################################
 #
 # help : ./check_snmp_storage_ucd -h
@@ -30,7 +30,7 @@ use utils qw(%ERRORS $TIMEOUT);
 
 # SNMP Datas
 my $index_table = '1.3.6.1.4.1.2021.9.1.1';
-my $descr_table = '1.3.6.1.4.1.2021.9.1.3'; #mount path table
+my $descr_table = '1.3.6.1.4.1.2021.9.1.2'; #mount path table
 my $size_total_low = '1.3.6.1.4.1.2021.9.1.11';
 my $size_total_high = '1.3.6.1.4.1.2021.9.1.12';
 my $size_used_low = '1.3.6.1.4.1.2021.9.1.15';
@@ -61,7 +61,7 @@ my $o_timeout=  5;            	# Default 5s Timeout
 my $o_perf=	undef;		# Output performance data
 my $o_short=	undef;	# Short output parameters
 my @o_shortL=	undef;		# output type,where,cut
-my $o_reserve=	0;              # % reserved blocks (A. Greiner-Bär patch)
+my $o_reserve=	0;              # % reserved blocks (A. Greiner-BÃ¤r patch)
 my $o_giga=		undef;	# output and levels in gigabytes instead of megabytes
 # SNMPv3 specific
 my $o_login=	undef;		# Login for snmpv3
@@ -292,7 +292,7 @@ sub check_options {
     if (defined ($o_octetlength) && (isnnum($o_octetlength) || $o_octetlength > 65535 || $o_octetlength < 484 )) {
 		print "octet lenght must be < 65535 and > 484\n";print_usage(); exit $ERRORS{"UNKNOWN"};
     }	
-    #### reserved blocks checks (A. Greiner-Bär patch).
+    #### reserved blocks checks (A. Greiner-BÃ¤r patch).
     if (defined ($o_reserve) && (isnnum($o_reserve) || $o_reserve > 99 || $o_reserve < 0 )) {
 		print "reserved blocks must be < 100 and >= 0\n";print_usage(); exit $ERRORS{"UNKNOWN"};
     }
