@@ -507,7 +507,7 @@ for ($i=0;$i<$num_int;$i++) {
   my $used_size = (($$result{$size_used_high . '.' . $tindex[$i]} * 4294967296) + $$result{$size_used_low . '.' . $tindex[$i]}) / $output_metric_val;
   
   my $bu = ($used_size);
-  my $pu = ($used_size / $total_size) * 100;
+  my $pu = $used_size > 0 && $total_size > 0 ? ($used_size / $total_size) * 100 : 0;
   
   my $to = $total_size;
 
